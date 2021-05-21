@@ -32,7 +32,6 @@ open class ChildMembersAdapter(var memberData: List<GameOfThrones.Member>) :
         }
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = DataViewHolder(
         LayoutInflater.from(parent.context).inflate(
             R.layout.item_row_child, parent,
