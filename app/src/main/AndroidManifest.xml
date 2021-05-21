@@ -15,21 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.photos.view.PhotosActivity">
+        <activity
+            android:name=".ui.home.view.HomeActivity"
+            android:screenOrientation="portrait" />
 
-        </activity>
-       
         <activity
             android:name=".ui.splash.view.SplashActivity"
             android:launchMode="singleTask"
             android:theme="@style/SplashScreenTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

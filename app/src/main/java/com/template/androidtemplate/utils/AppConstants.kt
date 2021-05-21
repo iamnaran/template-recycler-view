@@ -12,6 +12,8 @@ class AppConstants {
         const val PREF_KEY_ACCESS_TOKEN = "PREF_KEY_ACCESS_TOKEN"
         const val PREF_KEY_HOME_FEEDS = "PREF_KEY_HOME_FEEDS"
 
+        const val PREF_GAME_OF_THRONES= "PREF_KEY_GAME_OF_THRONES"
+
 
     }
 

@@ -6,14 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:fitsSystemWindows="true">
-
 
         <include
             android:id="@+id/title_layout"
@@ -24,35 +22,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <include
-            android:id="@+id/search_layout"
-            layout="@layout/item_search_photos"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_layout" />
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/parent_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:paddingTop="10dp"
             android:paddingBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search_layout" />
-
-        <include
-            android:id="@+id/empty_data_parent"
-            layout="@layout/item_empty_dataset"
-            android:layout_width="match_parent"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search_layout"
-            android:layout_height="match_parent"
-            android:layout_gravity="center" />
+            app:layout_constraintTop_toBottomOf="@+id/title_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

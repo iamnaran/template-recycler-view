@@ -1,12 +1,11 @@
-package com.template.androidtemplate.ui.photos.viewmodel
+package com.template.androidtemplate.ui.home.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.template.androidtemplate.data.helper.PreferencesHelper
-import com.template.androidtemplate.data.model.Photos
-import com.template.androidtemplate.data.repository.PhotosRepository
+import com.template.androidtemplate.data.model.GameOfThrones
+import com.template.androidtemplate.data.repository.HomeRepository
 import com.template.androidtemplate.utils.NetworkHelper
 import com.template.androidtemplate.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,61 +13,46 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PhotosViewModel @Inject constructor(
+class HomeViewModel @Inject constructor(
     private val networkHelper: NetworkHelper,
-    private val preferencesHelper: PreferencesHelper,
-    private val photosRepository: PhotosRepository
+    private val homeRepository: HomeRepository
 
 ) : ViewModel() {
 
-    private val TAG = PhotosViewModel::class.qualifiedName
+    private val TAG = HomeViewModel::class.qualifiedName
 
     var progressBarVisibility: MutableLiveData<Boolean> = MutableLiveData()
-    var onResponse: MutableLiveData<Resource<List<Photos>>> = MutableLiveData()
 
+    var onResponse: MutableLiveData<Resource<List<GameOfThrones>>> = MutableLiveData()
 
     fun isProgressBarVisible(): LiveData<Boolean> {
         return progressBarVisibility
     }
 
-
-    fun getPhotosFeed(): LiveData<Resource<List<Photos>>>{
+    fun getGameOfThronesData(): LiveData<Resource<List<GameOfThrones>>>{
         return onResponse
     }
 
     init {
-        doPhotosWork();
+        doGameOfThronesApiWork();
     }
 
-    private fun doPhotosWork() {
-
+    private fun doGameOfThronesApiWork() {
 
         viewModelScope.launch {
-
-
             if (networkHelper.isNetworkConnected()){
-
-                photosRepository.photosFeed().let {
-
+                homeRepository.gameOfThrones().let {
                     if (it.isSuccessful){
                         onResponse.postValue(Resource.success(it.body()))
-//                        preferencesHelper.setHomeFeeds(it.body())
                         progressBarVisibility.postValue(false)
                     }else{
                         onResponse.postValue(Resource.error(it.errorBody().toString(),null))
                         progressBarVisibility.postValue(false)
                     }
                 }
-
-
             }
-
-
-
-
         }
 
     }
-
 
 }

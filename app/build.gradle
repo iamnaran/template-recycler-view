@@ -16,8 +16,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-//        buildConfigField 'String', 'BASE_URL', "\"https://elibrary.smartgov.app/api/\""
-        buildConfigField 'String', 'BASE_URL', "\"https://picsum.photos/v2/\""
+        buildConfigField 'String', 'BASE_URL', "\"https://game-of-thrones-quotes.herokuapp.com/v1/\""
 //        buildConfigField 'String', 'API_SECRET', "\"61y2UU1XME1GfVFa\""
 //        buildConfigField 'String', 'API_KEY', "\"guWQWTof\""
 
