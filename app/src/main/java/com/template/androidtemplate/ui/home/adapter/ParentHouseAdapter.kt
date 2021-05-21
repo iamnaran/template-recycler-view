@@ -21,7 +21,7 @@ open class ParentHouseAdapter :
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
             itemView.setOnClickListener {
-//                onItemClick?.invoke(gameOfThronesHouseList[adapterPosition])
+                onItemClick?.invoke(gameOfThronesHouseList[adapterPosition])
 
             }
 
