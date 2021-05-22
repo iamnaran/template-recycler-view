@@ -49,13 +49,9 @@ class HomeActivity : AppCompatActivity() {
             when (it.status) {
 
                 Status.SUCCESS -> {
-
-
                     val gson: Gson = Gson()
-
                     Log.e( "doObserveWork: ",gson.toJson(it.data) )
                     renderGameOfThronesList(it.data!!)
-
 
                 }
 
@@ -74,16 +70,11 @@ class HomeActivity : AppCompatActivity() {
 
         })
 
-
-
-
     }
 
     private fun renderGameOfThronesList(gameOfThrones: List<GameOfThrones>) {
-
         parentHouseAdapter.addData(gameOfThrones)
         parentHouseAdapter.notifyDataSetChanged()
-
     }
 
 
